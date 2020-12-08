@@ -1,0 +1,33 @@
+login page
+    header
+    form
+        label
+        input
+        button
+
+tasks page
+    header
+    filter
+    active tasks list
+        list
+            list item
+                button (mark complete)
+        form (add task)
+            label
+            input
+            button
+    completed tasks list
+        list
+        form
+            label
+            input
+            button
+
+edit tasks page
+    header
+    button (back)
+    form
+        label
+        input
+        button (add)
+        button (delete)

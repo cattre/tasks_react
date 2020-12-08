@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import {TasksPage} from "./Components/TasksPage";
+import {EditPage} from "./Components/EditPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 'Tasks',
+      taskId: null
+    }
+  }
+
+  navigate = (page, taskId = null) => {
+    this.setState({page: page, taskId: taskId})
+  }
+
+  render () {
+    if (this.state.page === 'Edit') {
+      return <EditPage taskId={this.state.taskId} navigate={this.navigate}/>
+    } else {
+      return <TasksPage navigate={this.navigate}/>
+    }
+  }
 }
 
 export default App;
